@@ -5,9 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D rbody;  // Rigidbody2D型の変数
-    float axisH = 0.0f; // 入力
+    Rigidbody2D rbody;         // Rigidbody2D型の変数
+    float axisH = 0.0f;        // 入力
     public float speed = 3.0f; // 移動速度
+    
+    public float jump = 5.0f;     // ジャンプ力
+    public LayerMask groundLayer; // 地面のレイヤー
+    bool goJump = false;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,15 +27,40 @@ public class PlayerController : MonoBehaviour
     {
         axisH = Input.GetAxis("Horizontal");
         Move();
+
+        if(Input.GetButtonDown("Jump"))
+        {
+            Jump();
+        }
     }
 
     void FixedUpdate()
     {
-        rbody.linearVelocity = new Vector2
+        // 地上判定
+        bool onGround = Physics2D.CircleCast
         (
-            axisH * speed,
-            rbody.linearVelocity.y
-        );
+            transform.position, 
+            0.2f,               // 半径
+            Vector2.down,       // ジャンプ方向
+            0.0f,               // ジャンプ距離
+            groundLayer         // 地面のレイヤー
+        );   
+
+        if(onGround || axisH != 0.0f)
+        {
+            rbody.linearVelocity = new Vector2
+            (
+                axisH * speed,
+                rbody.linearVelocity.y
+            );
+        }
+
+        if(onGround && goJump)
+        {
+            Vector2 jumpPw = new Vector2(0, jump);
+            rbody.AddForce(jumpPw, ForceMode2D.Impulse);
+            goJump = false;
+        }
     }
 
     void Move()
@@ -46,5 +77,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log("左移動");
             transform.localScale = new Vector2(-1.0f, 1.0f);
         }
+    }
+
+    public void Jump()
+    {
+        goJump = true; 
     }
 }
