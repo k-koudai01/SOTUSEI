@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rbody;         // Rigidbody2D型の変数
     float axisH = 0.0f;        // 入力
-    public float speed = 3.0f; // 移動速度
+
+    [SerializeField]
+    private float speed = 3.0f; // 移動速度
     
     public float jump = 5.0f;     // ジャンプ力
     public LayerMask groundLayer; // 地面のレイヤー
