@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Script.Character.Player.PlayerSystem
 {
-    public class NewMonoBehaviour : CharaBase
+    public class PlayerBase : CharaBase
     {
 
         // Use this for initialization

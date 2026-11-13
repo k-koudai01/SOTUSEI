@@ -19,6 +19,8 @@ namespace Assets.Script.Character.Player.PlayerSystem
         [SerializeField]
         //  private Key bulletDeleteAreaKey = Key.Q;
 
+        private  PlayerMovement movement;
+
         private GameObject currentPlayer;
         //=====================================================================
         // 初期化
@@ -30,6 +32,14 @@ namespace Assets.Script.Character.Player.PlayerSystem
             if (currentPlayer == null)
             {
                 Debug.LogError("Playerオブジェクトが見つかりません。");
+                return;
+            }
+
+            movement = currentPlayer.GetComponent<PlayerMovement>();
+            if(movement == null)
+            {
+                Debug.LogError("PlayerMovementコンポーネントが見つかりません。");
+                return;
             }
         }
 
@@ -50,7 +60,6 @@ namespace Assets.Script.Character.Player.PlayerSystem
         /// <param name="currentPlayer"></param>
         private void UpdateMoveInput(GameObject currentPlayer)
         {
-            PlayerMovement movement = currentPlayer.GetComponent<PlayerMovement>();
             if (movement == null) { return; }
 
             Vector2 moveInput = GetMoveInput();

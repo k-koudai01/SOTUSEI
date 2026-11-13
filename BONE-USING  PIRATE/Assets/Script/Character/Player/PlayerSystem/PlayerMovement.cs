@@ -48,12 +48,12 @@ namespace Assets.Script.Character.Player.PlayerSystem
         protected virtual void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
-            if (rb == null)
+            if(rb == null)
             {
                 Debug.LogError("Rigidbody2Dコンポーネントが見つかりません。", this);
             }
 
-            if (moveSpeed <= 0)
+            if(moveSpeed <= 0)
             {
                 Debug.LogError("移動速度が正しく設定されていません。", this);
             }
@@ -68,17 +68,18 @@ namespace Assets.Script.Character.Player.PlayerSystem
 
         private void Update()
         {
-            if (playerAnimation == null) { return; }
+            if(playerAnimation == null) { return; }
 
-            if (this.MoveDirection != Vector2.zero)
+            if(this.MoveDirection != Vector2.zero)
             {
                 playerAnimation.SetDirection(this.MoveDirection);
             }
+
         }
 
         private void FixedUpdate()
         {
-            if (!canControl || moveDirection == Vector2.zero) { return; }
+            if(!canControl || moveDirection == Vector2.zero) { return; }
 
             Vector2 nextPosition =
                 rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime;
@@ -93,7 +94,7 @@ namespace Assets.Script.Character.Player.PlayerSystem
         /// <param name="direction">移動方向</param>
         public void SetMoveDirection(Vector2 direction)
         {
-            if (!canControl)
+            if(!canControl)
             {
                 moveDirection = Vector2.zero;
                 return;
@@ -109,7 +110,7 @@ namespace Assets.Script.Character.Player.PlayerSystem
         public void SetControlEnabled(bool enabled)
         {
             canControl = enabled;
-            if (!canControl) { moveDirection = Vector2.zero; }
+            if(!canControl) { moveDirection = Vector2.zero; }
         }
 
         /// <summary>
