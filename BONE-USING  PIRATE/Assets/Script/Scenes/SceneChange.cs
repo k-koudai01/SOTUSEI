@@ -5,6 +5,7 @@
 // * \author 成田悠真
 /*********************************************************************/
 
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

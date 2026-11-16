@@ -12,7 +12,7 @@ namespace Assets.Script.Character.Player.PlayerState
 
         public override void Enter()
         {
-            // 移動状態に入ったときの処理
+            Debug.Log("現在MoveState");
         }
 
         public override void Update()
