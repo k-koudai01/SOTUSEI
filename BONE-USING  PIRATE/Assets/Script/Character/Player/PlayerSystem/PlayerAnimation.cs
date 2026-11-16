@@ -37,7 +37,7 @@ namespace Assets.Script.Character.Player.PlayerSystem
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
-
+      
         public void SetDirection(Vector2 direction)
         {
             if (direction.x > 0)

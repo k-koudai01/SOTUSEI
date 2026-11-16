@@ -22,6 +22,16 @@ namespace Assets.Script.Character.Player.PlayerSystem
         private  PlayerMovement movement;
 
         private GameObject currentPlayer;
+
+        ///=====================================================================
+        /// プロパティ
+        ///===================================================================== 
+
+        /// <summary>
+        /// ジャンプボタンが押されたかどうかを
+        /// </summary>
+        private bool JumpPressed => Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame;  
+
         //=====================================================================
         // 初期化
         //=====================================================================
@@ -93,6 +103,15 @@ namespace Assets.Script.Character.Player.PlayerSystem
             }
 
             return new Vector2(horizontal, vertical);
+        }
+
+        /// <summary>
+        /// ジャンプ入力を取得する 
+        /// </summary>
+        /// <returns> ジャンプ入力 </returns>
+        public bool GetJumpInput()
+        {
+            return JumpPressed;
         }
     }
 }

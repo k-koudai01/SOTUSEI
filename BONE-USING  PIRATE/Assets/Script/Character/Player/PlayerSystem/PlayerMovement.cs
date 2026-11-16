@@ -29,7 +29,16 @@ namespace Assets.Script.Character.Player.PlayerSystem
         [SerializeField]
         private bool canControl = true;
 
+
+        [Header("ジャンプ設定")]
+        [SerializeField]
+        private LayerMask groundLayer;
+
+        private bool isGrounded;
+
         private Rigidbody2D rb;
+
+        private CapsuleCollider2D capsuleCollider;
 
         private Vector2 moveDirection;
 
@@ -41,6 +50,7 @@ namespace Assets.Script.Character.Player.PlayerSystem
         public bool CanControl => canControl;
         public Vector2 MoveDirection => moveDirection;
 
+        public bool IsGrounded => isGrounded;
         //=====================================================================
         // 関数
         //=====================================================================
@@ -48,9 +58,15 @@ namespace Assets.Script.Character.Player.PlayerSystem
         protected virtual void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
-            if(rb == null)
+            capsuleCollider = GetComponent<CapsuleCollider2D>();
+            if (rb == null)
             {
                 Debug.LogError("Rigidbody2Dコンポーネントが見つかりません。", this);
+            }
+
+            if (capsuleCollider == null)
+            {
+                Debug.LogError("CapsuleCollider2Dコンポーネントが見つかりません。", this);
             }
 
             if(moveSpeed <= 0)
@@ -68,7 +84,9 @@ namespace Assets.Script.Character.Player.PlayerSystem
 
         private void Update()
         {
-            if(playerAnimation == null) { return; }
+            CheckGround();
+
+            if (playerAnimation == null) { return; }
 
             if(this.MoveDirection != Vector2.zero)
             {
@@ -79,13 +97,17 @@ namespace Assets.Script.Character.Player.PlayerSystem
 
         private void FixedUpdate()
         {
-            if(!canControl || moveDirection == Vector2.zero) { return; }
+            if(!canControl)
+            {
+                // 操作が無効な場合、移動を停止する
+                rb.linearVelocity = new Vector2(0.0f, rb.linearVelocity.y);
+                return;
+            }
 
-            Vector2 nextPosition =
-                rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime;
+            float horizontalInput = moveDirection.x * moveSpeed;
 
-            rb.position = nextPosition;
-
+            // 速度の設定
+            rb.linearVelocity = new Vector2(horizontalInput, rb.linearVelocity.y);
         }
 
         /// <summary>
@@ -119,6 +141,31 @@ namespace Assets.Script.Character.Player.PlayerSystem
         public void ResetMoveDirection()
         {
             moveDirection = Vector2.zero;
+        }
+
+        private void CheckGround()
+        {
+            if (capsuleCollider == null) { return; }
+
+            // コライダーの範囲を取得
+            Bounds bounds = capsuleCollider.bounds;
+
+            // コライダーの下端中央をRayの開始位置にする
+            Vector2 origin = new Vector2(
+                bounds.center.x,
+                bounds.min.y
+            );
+
+            // Rayを飛ばす距離
+            float rayDistance = 0.1f;
+
+            // 地面に接触しているか確認
+            isGrounded = Physics2D.Raycast(
+                origin,
+                Vector2.down,
+                rayDistance,
+                groundLayer
+            );
         }
     }
 
