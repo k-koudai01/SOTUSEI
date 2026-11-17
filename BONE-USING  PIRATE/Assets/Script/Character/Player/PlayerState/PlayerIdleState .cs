@@ -19,12 +19,25 @@ namespace Assets.Script.Character.Player.PlayerState
 
         public override void Update()
         {
-            // プレイヤーが移動している場合、Idle状態から別の状態に遷移する処理を追加することができます。
-            if (stateMachine.Movement.MoveDirection != UnityEngine.Vector2.zero)
+            // ジャンプ入力
+            if(stateMachine.Input.GetJumpInput() &&
+               stateMachine.Movement.IsGrounded)
             {
                 stateMachine.ChangeState
                 (
-                    new PlayerMoveState(stateMachine)
+                    stateMachine.JumpState
+                );
+
+                return;
+            }
+
+
+            // 移動入力
+            if(stateMachine.Movement.MoveDirection != UnityEngine.Vector2.zero)
+            {
+                stateMachine.ChangeState
+                (
+                    stateMachine.MoveState
                 );
             }
         }

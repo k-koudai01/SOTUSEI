@@ -14,42 +14,46 @@ namespace Assets.Script.Character.Player.PlayerSystem
     /// プレイヤーの移動処理クラス
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(CapsuleCollider2D))]
     public class PlayerMovement : MonoBehaviour
     {
         //=====================================================================
         // 変数
         //=====================================================================
         [Header("移動設定")]
-
         [SerializeField]
         private float moveSpeed = 5.0f;
 
-        [Header("操作設定")]
-
-        [SerializeField]
-        private bool canControl = true;
-
-
         [Header("ジャンプ設定")]
+        [SerializeField]
+        private float jumpForce = 10.0f;
+
         [SerializeField]
         private LayerMask groundLayer;
 
-        private bool isGrounded;
+        [Header("操作設定")]
+        [SerializeField]
+        private bool canControl = true;
+
+        [Header("接地判定")]
+        [SerializeField]
+        private float groundCheckDistance = 0.05f;
 
         private Rigidbody2D rb;
-
         private CapsuleCollider2D capsuleCollider;
 
         private Vector2 moveDirection;
 
-        private PlayerAnimation playerAnimation;
+        private bool isGrounded;
 
+        private PlayerAnimation playerAnimation;
         //=====================================================================
         // プロパティ
         //=====================================================================
+
         public bool CanControl => canControl;
         public Vector2 MoveDirection => moveDirection;
-
+        public float VerticalVelocity => rb.linearVelocity.y;
         public bool IsGrounded => isGrounded;
         //=====================================================================
         // 関数
@@ -59,12 +63,13 @@ namespace Assets.Script.Character.Player.PlayerSystem
         {
             rb = GetComponent<Rigidbody2D>();
             capsuleCollider = GetComponent<CapsuleCollider2D>();
-            if (rb == null)
+            playerAnimation = GetComponent<PlayerAnimation>();
+            if(rb == null)
             {
                 Debug.LogError("Rigidbody2Dコンポーネントが見つかりません。", this);
             }
 
-            if (capsuleCollider == null)
+            if(capsuleCollider == null)
             {
                 Debug.LogError("CapsuleCollider2Dコンポーネントが見つかりません。", this);
             }
@@ -74,23 +79,15 @@ namespace Assets.Script.Character.Player.PlayerSystem
                 Debug.LogError("移動速度が正しく設定されていません。", this);
             }
 
-            playerAnimation = GetComponent<PlayerAnimation>();
-            if(playerAnimation == null)
-            {
-                Debug.LogError($"{name}: PlayerMovementまたはNoahAnimationがアタッチされていません。", this);
-            }
-
         }
 
         private void Update()
         {
             CheckGround();
 
-            if (playerAnimation == null) { return; }
-
-            if(this.MoveDirection != Vector2.zero)
+            if(moveDirection != Vector2.zero)
             {
-                playerAnimation.SetDirection(this.MoveDirection);
+                GetComponent<PlayerAnimation>()?.SetDirection(moveDirection);
             }
 
         }
@@ -127,6 +124,25 @@ namespace Assets.Script.Character.Player.PlayerSystem
         }
 
         /// <summary>
+        /// ジャンプ処理
+        /// </summary>
+        public void Jump()
+        {
+            if(!canControl || !isGrounded)
+            {
+                return;
+            }
+
+            rb.linearVelocity = new Vector2
+            (
+                rb.linearVelocity.x,
+                jumpForce
+            );
+
+            isGrounded = false;
+        }
+
+        /// <summary>
         /// 操作可能状態を変更するメソッド
         /// </summary>
         public void SetControlEnabled(bool enabled)
@@ -143,29 +159,61 @@ namespace Assets.Script.Character.Player.PlayerSystem
             moveDirection = Vector2.zero;
         }
 
+        /// <summary>
+        /// 地面か判定するメソッド
+        /// </summary>
         private void CheckGround()
         {
-            if (capsuleCollider == null) { return; }
+            if(capsuleCollider == null)
+            {
+                isGrounded = false;
+                return;
+            }
 
-            // コライダーの範囲を取得
             Bounds bounds = capsuleCollider.bounds;
 
-            // コライダーの下端中央をRayの開始位置にする
-            Vector2 origin = new Vector2(
+            // 接地判定用の矩形を計算する
+            Vector2 checkPosition = new Vector2(
                 bounds.center.x,
-                bounds.min.y
+                bounds.min.y - groundCheckDistance * 0.5f
             );
 
-            // Rayを飛ばす距離
-            float rayDistance = 0.1f;
+            // 接地判定用の矩形のサイズを計算する
+            Vector2 checkSize = new Vector2(
+                bounds.size.x * 0.8f,
+                groundCheckDistance
+            );
 
-            // 地面に接触しているか確認
-            isGrounded = Physics2D.Raycast(
-                origin,
-                Vector2.down,
-                rayDistance,
+            // 接地判定を行う
+            isGrounded = Physics2D.OverlapBox(
+                checkPosition,
+                checkSize,
+                0.0f,
                 groundLayer
+            ) != null;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            if(capsuleCollider == null) { return; }
+           
+            Bounds bounds = capsuleCollider.bounds;
+
+            Vector2 checkPosition = new Vector2
+            (
+                bounds.center.x,
+                bounds.min.y - groundCheckDistance * 0.5f
             );
+
+            Vector2 checkSize = new Vector2
+            (
+                bounds.size.x * 0.8f,
+                groundCheckDistance
+            );
+
+            Gizmos.color = Color.green;
+
+            Gizmos.DrawWireCube(checkPosition, checkSize);
         }
     }
 

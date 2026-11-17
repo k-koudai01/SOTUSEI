@@ -55,10 +55,10 @@ namespace Assets.Script.Character.Player.PlayerSystem
 
         private void Update()
         {
-            if (Keyboard.current == null) { return; }
+            //if (Keyboard.current == null) { return; }
 
-            // 移動入力を更新
-            UpdateMoveInput(currentPlayer);
+            //// 移動入力を更新
+            //UpdateMoveInput(currentPlayer);
         }
         //=====================================================================
         // アクション開始関数
@@ -82,36 +82,42 @@ namespace Assets.Script.Character.Player.PlayerSystem
         //=====================================================================
 
         /// <summary>
-        /// 移動入力を取得する
-        /// </summary>
-        /// <returns> 移動入力 </returns>
-        public Vector2 GetMoveInput()
-        {
-            float horizontal = 0.0f;
-            float vertical = 0.0f;
-
-            if (Keyboard.current.dKey.isPressed ||
-               Keyboard.current.rightArrowKey.isPressed)
-            {
-                horizontal = 1.0f;
-
-            }
-            else if (Keyboard.current.aKey.isPressed ||
-                    Keyboard.current.leftArrowKey.isPressed)
-            {
-                horizontal = -1.0f;
-            }
-
-            return new Vector2(horizontal, vertical);
-        }
-
-        /// <summary>
         /// ジャンプ入力を取得する 
         /// </summary>
         /// <returns> ジャンプ入力 </returns>
         public bool GetJumpInput()
         {
-            return JumpPressed;
+            return Keyboard.current != null &&
+                   Keyboard.current.spaceKey.wasPressedThisFrame;
+
+            Debug.LogError("ジャンプ入力を取得");
+        }
+
+        /// <summary>
+        /// 移動入力を取得する
+        /// </summary>
+        /// <returns> 移動入力 </returns>
+        public Vector2 GetMoveInput()
+        {
+            if(Keyboard.current == null)
+            {
+                return Vector2.zero;
+            }
+
+            float horizontal = 0.0f;
+
+            if(Keyboard.current.dKey.isPressed ||
+                Keyboard.current.rightArrowKey.isPressed)
+            {
+                horizontal = 1.0f;
+            }
+            else if(Keyboard.current.aKey.isPressed ||
+                     Keyboard.current.leftArrowKey.isPressed)
+            {
+                horizontal = -1.0f;
+            }
+
+            return new Vector2(horizontal, 0.0f);
         }
     }
 }

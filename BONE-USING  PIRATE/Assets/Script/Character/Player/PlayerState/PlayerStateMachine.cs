@@ -12,42 +12,56 @@ namespace Assets.Script.Character.Player.PlayerState
     {
         private PlayerState currentState;
 
-        // この書き方は、PlayerStateMachineクラスの外部から
-        // Movementプロパティを取得することができるようにするためのものです。
-        //
-        // C++でいうところの「getter」に相当します。
+        //=====================================================================
+        // 各コンポーネント
+        //=====================================================================
         public PlayerMovement Movement { get; private set; }
         public PlayerInput Input { get; private set; }
         public PlayerAnimation Animation { get; private set; }
 
+        //=====================================================================
+        // 各State
+        //=====================================================================
+        public PlayerIdleState IdleState { get; private set; }
+        public PlayerMoveState MoveState { get; private set; }
+        public PlayerJumpState JumpState { get; private set; }
+        public PlayerFallState FallState { get; private set; }
+
         private void Awake()
         {
-            Movement  = GetComponent<PlayerMovement>();
-            Input     = GetComponent<PlayerInput>();
+            Movement = GetComponent<PlayerMovement>();
+            Input = GetComponent<PlayerInput>();
             Animation = GetComponent<PlayerAnimation>();
 
-            if (Movement == null)
+            if(Movement == null || Input == null || Animation == null)
             {
-                Debug.LogError("PlayerMovementが見つかりません。", this);
-            }
-            if (Input == null)
-            {
-                Debug.LogError("PlayerInputが見つかりません。", this);
-            }
-            if (Animation == null)
-            {
-                Debug.LogError("PlayerAnimationが見つかりません。", this);
+                Debug.LogError
+                (
+                    "Playerに必要なコンポーネントがありません。",
+                    this
+                );
+
+                enabled = false;
+                return;
             }
 
+            // Stateの生成
+            IdleState = new PlayerIdleState(this);
+            MoveState = new PlayerMoveState(this);
+            JumpState = new PlayerJumpState(this);
+            FallState = new PlayerFallState(this);
         }
 
         private void Start()
         {
-            ChangeState(new PlayerIdleState(this));
+            ChangeState(IdleState);
         }
 
         private void Update()
         {
+            //　入力の更新
+            Movement.SetMoveDirection(Input.GetMoveInput());
+
             currentState?.Update();
         }
 
@@ -56,13 +70,21 @@ namespace Assets.Script.Character.Player.PlayerState
             currentState?.FixedUpdate();
         }
 
+        /// <summary>
+        /// 新しい状態に変更するメソッド
+        /// @param newState 新しい状態
+        /// </summary>
         public void ChangeState(PlayerState newState)
         {
-            if(newState == null) return;
+            if(newState == null || currentState == newState)
+            {
+                return;
+            }
 
-            // 現在の状態を終了し、新しい状態に切り替える
             currentState?.Exit();
+
             currentState = newState;
+
             currentState.Enter();
         }
 
