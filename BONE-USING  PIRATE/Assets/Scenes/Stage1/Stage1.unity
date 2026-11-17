@@ -1233,7 +1233,7 @@ Transform:
   m_GameObject: {fileID: 886373986}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.1, y: -2.05, z: 0}
+  m_LocalPosition: {x: -8.18, y: -2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1252,13 +1252,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Script.Character.Player.PlayerSystem.PlayerAnimation
   idIdleRight:
-    stateName: Idle__Right
+    stateName: Idle_Right
+    speed: 0.2
   idIdleLeft:
     stateName: Idle_Left
+    speed: 0.2
   idMoveRight:
     stateName: Move_Right
+    speed: 0.3
   idMoveLeft:
     stateName: Move_Left
+    speed: 0.3
 --- !u!70 &886373993
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1293,8 +1297,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.92}
-  m_Size: {x: 1, y: 1.88}
+  m_Offset: {x: -0.09, y: 0.71}
+  m_Size: {x: 0.9, y: 1.54}
   m_Direction: 0
 --- !u!114 &886373994
 MonoBehaviour:
