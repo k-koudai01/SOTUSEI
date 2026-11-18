@@ -13,7 +13,7 @@ namespace Assets.Script.Character.Player.PlayerState
 
         public override void Enter()
         {
-            Debug.Log("現在IdleState");
+            //Debug.Log("現在IdleState");
             stateMachine.Animation.SetIdle();
         }
 

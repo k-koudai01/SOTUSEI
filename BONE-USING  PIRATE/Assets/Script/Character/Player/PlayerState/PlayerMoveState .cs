@@ -12,7 +12,7 @@ namespace Assets.Script.Character.Player.PlayerState
 
         public override void Enter()
         {
-            Debug.Log("現在MoveState");
+            //Debug.Log("現在MoveState");
              stateMachine.Animation.SetDirection
              (
                  stateMachine.Movement.MoveDirection

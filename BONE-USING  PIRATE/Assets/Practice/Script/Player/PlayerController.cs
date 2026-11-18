@@ -71,13 +71,13 @@ public class PlayerController : MonoBehaviour
         if(axisH > 0.0f)
         {
             // 右移動
-            Debug.Log("右移動");
+            //Debug.Log("右移動");
             transform.localScale = new Vector2(1.0f, 1.0f);
         }
         else if(axisH < 0.0f)
         {
             // 左移動
-            Debug.Log("左移動");
+            //Debug.Log("左移動");
             transform.localScale = new Vector2(-1.0f, 1.0f);
         }
     }
