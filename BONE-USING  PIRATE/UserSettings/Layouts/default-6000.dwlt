@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 306
     height: 924
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1111
-    y: 87
+    y: 24
     width: 305
     height: 898
   m_SerializedDataModeController:
@@ -449,8 +449,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "UnityEditor.MainToolbarWindow\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1
-    y: 51
+    x: 0
+    y: 0
     width: 1416
     height: 36
   m_SerializedDataModeController:
@@ -822,8 +822,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Hierarchy\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1
-    y: 87
+    x: 0
+    y: 24
     width: 181
     height: 498
   m_SerializedDataModeController:
@@ -844,16 +844,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs:
-      - m_rawData: 568105584918841912
+      m_SelectedIDs: []
       m_LastClickedID:
-        m_rawData: 568105584918841912
+        m_rawData: 0
       m_ExpandedIDs:
       - m_rawData: 568105589213756036
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Player
-        m_OriginalName: Player
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
@@ -861,10 +860,10 @@ MonoBehaviour:
           width: 0
           height: 0
         m_UserData:
-          m_rawData: 568105584918841912
+          m_rawData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 9}
@@ -898,7 +897,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 183
-    y: 87
+    y: 24
     width: 926
     height: 498
   m_SerializedDataModeController:
@@ -1509,7 +1508,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID:
-    m_rawData: 568105584918841912
+    m_rawData: 0
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1531,8 +1530,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1
-    y: 611
+    x: 0
+    y: 548
     width: 1109
     height: 374
   m_SerializedDataModeController:
@@ -1586,24 +1585,22 @@ MonoBehaviour:
       m_rawData: 568105584918854738
     m_ExpandedIDs:
     - m_rawData: 0
-    - m_rawData: 568105584918842082
-    - m_rawData: 568105584918842086
-    - m_rawData: 568105584918842088
-    - m_rawData: 568105584918842090
-    - m_rawData: 568105584918842510
-    - m_rawData: 568105584918847034
-    - m_rawData: 568105584918847260
-    - m_rawData: 568105584918848956
-    - m_rawData: 568105584918849162
-    - m_rawData: 568105584918849658
-    - m_rawData: 568105584918850306
-    - m_rawData: 568105584918851022
-    - m_rawData: 568105584918851522
-    - m_rawData: 568105584918852950
+    - m_rawData: 568105584918842232
+    - m_rawData: 568105584918842234
+    - m_rawData: 568105584918842236
+    - m_rawData: 568105584918842238
+    - m_rawData: 568105584918842240
+    - m_rawData: 568105584918842242
+    - m_rawData: 568105584918842244
+    - m_rawData: 568105584918842246
+    - m_rawData: 568105584918842248
+    - m_rawData: 568105584918842250
+    - m_rawData: 568105584918842252
+    - m_rawData: 568105584918842254
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Skeleton
-      m_OriginalName: Skeleton
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
@@ -1611,10 +1608,10 @@ MonoBehaviour:
         width: 0
         height: 0
       m_UserData:
-        m_rawData: 568105584918852950
+        m_rawData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 11}
@@ -1633,11 +1630,18 @@ MonoBehaviour:
       m_rawData: 0
     m_ExpandedIDs:
     - m_rawData: 0
-    - m_rawData: 568105584918842082
-    - m_rawData: 568105584918842084
-    - m_rawData: 568105584918842086
-    - m_rawData: 568105584918842088
-    - m_rawData: 568105584918842090
+    - m_rawData: 568105584918842232
+    - m_rawData: 568105584918842234
+    - m_rawData: 568105584918842236
+    - m_rawData: 568105584918842238
+    - m_rawData: 568105584918842240
+    - m_rawData: 568105584918842242
+    - m_rawData: 568105584918842244
+    - m_rawData: 568105584918842246
+    - m_rawData: 568105584918842248
+    - m_rawData: 568105584918842250
+    - m_rawData: 568105584918842252
+    - m_rawData: 568105584918842254
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
