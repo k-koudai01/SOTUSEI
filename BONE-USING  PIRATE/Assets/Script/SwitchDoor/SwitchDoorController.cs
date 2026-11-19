@@ -21,7 +21,7 @@ public class SwitchDoorController : ObjectBase, IActivatable
     [SerializeField]
     private DoorMovement doorMovement;
 
-    [Header("ドアの設定")]
+    [Header("ドアが移動してから閉じるまでの時間")]
     [SerializeField]
     private float openDuration = 3f;
 
