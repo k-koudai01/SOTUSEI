@@ -880,6 +880,7 @@ GameObject:
   - component: {fileID: 886373992}
   - component: {fileID: 886373994}
   - component: {fileID: 886373995}
+  - component: {fileID: 886373996}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -945,7 +946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e748c387e312ab04dbabc4a93f82f1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
-  movement: {fileID: 886373987}
 --- !u!212 &886373990
 SpriteRenderer:
   serializedVersion: 3
@@ -1116,6 +1116,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &886373996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886373986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6185913d0de694380584a70dd1a0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Script.Character.Player.PlayerSystem.PlayerAim
 --- !u!4 &903230437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3359587393783016495, guid: a8e77060a114df44c9461b1d22d427b1, type: 3}
@@ -2385,7 +2397,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

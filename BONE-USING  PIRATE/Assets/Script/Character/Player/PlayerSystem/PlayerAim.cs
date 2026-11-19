@@ -44,7 +44,8 @@ namespace Assets.Script.Character.Player.PlayerSystem
         {
             Vector2 aimDirection = GetAimDirection();
 
-            if(aimDirection.sqrMagnitude > 0.01)
+            // 照準方向を表示する
+            if (aimDirection.sqrMagnitude > 0.01)
             {
                 Debug.Log($"Aim Direction: {aimDirection}");
             }
