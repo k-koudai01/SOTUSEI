@@ -65,8 +65,6 @@ public class DoorMovementEditor : Editor
 
         EditorGUILayout.Space();
 
-        EditorGUILayout.LabelField("移動設定", EditorStyles.boldLabel);
-
         // 移動方式
         EditorGUILayout.PropertyField(positionMode);
 

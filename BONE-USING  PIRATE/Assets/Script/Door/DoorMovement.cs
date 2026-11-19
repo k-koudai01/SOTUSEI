@@ -32,7 +32,6 @@ public class DoorMovement : ObjectBase
     private Transform doorTransform;
 
     [Header("移動設定")]
-
     [SerializeField]
     private PositionMode positionMode = PositionMode.Automatic;
 
