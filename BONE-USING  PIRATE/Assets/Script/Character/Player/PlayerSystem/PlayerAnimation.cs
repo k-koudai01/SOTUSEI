@@ -37,12 +37,15 @@ namespace Assets.Script.Character.Player.PlayerSystem
 
         private Animator animator;
 
-        // private SpriteRenderer spriteRenderer;
-
         // 最後の方向を記録する
         private bool isFacingRight = true;
 
         private int currentAnimationHash = -1;
+
+        //============================================================
+        // プロパティ
+        //============================================================
+        public bool IsFacingRight => isFacingRight;
 
         //============================================================
         // 関数
