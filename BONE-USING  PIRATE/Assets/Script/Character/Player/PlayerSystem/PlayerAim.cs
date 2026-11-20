@@ -7,7 +7,7 @@
 
 using UnityEngine;
 
-namespace Assets.Character.Player.PlayerSystem
+namespace Assets.Script.Character.Player.PlayerSystem
 {
     /// <summary>
     /// プレイヤーの照準方向を管理するクラス
@@ -66,16 +66,6 @@ namespace Assets.Character.Player.PlayerSystem
             // 入力がない場合は、プレイヤーの向きに基づいて方向を決定する
             return playerAnimation.IsFacingRight ? Vector2.right : Vector2.left;
         }
-
-        ///// <summary>
-        ///// この関数は、Unityエディタ上でGizmosを描画するために使用されます。プレイヤーの照準方向を視覚的に確認するために、赤い線を描画します。
-        ///// </summary>
-        //private void OnDrawGizmos()
-        //{
-        //    Vector2 aimDirection = GetAimDirection();
-        //    Gizmos.color = Color.red;
-        //    Gizmos.DrawLine(transform.position, (Vector2)transform.position + aimDirection);
-        //}
 
     }
 }
