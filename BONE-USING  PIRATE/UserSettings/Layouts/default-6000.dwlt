@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 286
     height: 924
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -244,8 +244,8 @@ MonoBehaviour:
     y: 0
     width: 876
     height: 524
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1048
-    y: 87
+    y: 24
     width: 285
     height: 898
   m_SerializedDataModeController:
@@ -449,8 +449,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "UnityEditor.MainToolbarWindow\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1
-    y: 51
+    x: 0
+    y: 0
     width: 1333
     height: 36
   m_SerializedDataModeController:
@@ -822,8 +822,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Hierarchy\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1
-    y: 87
+    x: 0
+    y: 24
     width: 170
     height: 498
   m_SerializedDataModeController:
@@ -844,10 +844,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs:
-      - m_rawData: 568105584918850272
+      m_SelectedIDs: []
       m_LastClickedID:
-        m_rawData: 568105584918850272
+        m_rawData: 0
       m_ExpandedIDs:
       - m_rawData: 568105589213737362
       - m_rawData: 568105589213737828
@@ -899,7 +898,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 172
-    y: 87
+    y: 24
     width: 874
     height: 498
   m_SerializedDataModeController:
@@ -1510,7 +1509,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID:
-    m_rawData: 568105584918850272
+    m_rawData: 0
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1585,16 +1584,12 @@ MonoBehaviour:
     m_LastClickedID:
       m_rawData: 568105584918850450
     m_ExpandedIDs:
-    - m_rawData: 568105589213737474
     - m_rawData: 0
-    - m_rawData: 568105584918845748
-    - m_rawData: 568105584918847918
-    - m_rawData: 568105584918849876
-    - m_rawData: 568105584918849878
-    - m_rawData: 568105584918849880
-    - m_rawData: 568105584918850172
-    - m_rawData: 568105584918850430
-    - m_rawData: 568105584918850444
+    - m_rawData: 568105584918842312
+    - m_rawData: 568105584918842314
+    - m_rawData: 568105584918842316
+    - m_rawData: 568105584918842318
+    - m_rawData: 568105584918842320
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1628,10 +1623,11 @@ MonoBehaviour:
       m_rawData: 0
     m_ExpandedIDs:
     - m_rawData: 0
-    - m_rawData: 568105584918849874
-    - m_rawData: 568105584918849876
-    - m_rawData: 568105584918849878
-    - m_rawData: 568105584918849880
+    - m_rawData: 568105584918842312
+    - m_rawData: 568105584918842314
+    - m_rawData: 568105584918842316
+    - m_rawData: 568105584918842318
+    - m_rawData: 568105584918842320
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1728,8 +1724,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Console\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1
-    y: 611
+    x: 0
+    y: 548
     width: 1046
     height: 374
   m_SerializedDataModeController:
