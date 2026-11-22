@@ -13,7 +13,7 @@ namespace Assets.Script.Bullet
     /// 弾の基本クラス
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
-    public class BulletBase : MonoBehaviour
+    public abstract class BulletBase : MonoBehaviour
     {
         //============================================================
         // 変数
@@ -37,6 +37,8 @@ namespace Assets.Script.Bullet
         /// <param name="direction">弾の移動方向</param>
         public virtual void Initialize(Vector2 direction)
         {
+            if(direction.sqrMagnitude <= 0.0001) return;
+
             rb.linearVelocity = direction.normalized * moveSpeed;
         }
 
