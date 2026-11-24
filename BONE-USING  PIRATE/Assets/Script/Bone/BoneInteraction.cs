@@ -10,7 +10,7 @@ using UnityEngine;
 /// <summary>
 /// 骨を調べるためのクラス
 /// </summary>
-public class BoneInteraction : Intaractable
+public class BoneInteraction : Interactable
 {
     //==========================================================
     // 変数宣言

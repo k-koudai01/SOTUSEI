@@ -1,5 +1,5 @@
 /*********************************************************************/
-// * \file   Intaractable.cs
+// * \file   Interactable.cs
 // * \brief  インタラクト可能オブジェクトの基底クラス
 // *
 // * \author 成田悠真
@@ -11,7 +11,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// インタラクト可能オブジェクトの抽象クラス
 /// </summary>
-public abstract class Intaractable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
     //=====================================================================
     // 変数宣言
