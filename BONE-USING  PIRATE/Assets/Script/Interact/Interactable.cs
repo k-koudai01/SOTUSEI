@@ -65,10 +65,7 @@ public abstract class Interactable : MonoBehaviour
         if(!isPlayerNearby) { return; }
 
         // インタラクト入力がされたときに処理を呼び出す
-        if(GetInteractInput())
-        {
-            Interact();
-        }
+        if(GetInteractInput()) { Interact(); }
     }
 
     //=====================================================================
