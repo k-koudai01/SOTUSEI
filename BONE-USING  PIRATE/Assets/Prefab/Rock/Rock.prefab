@@ -10,9 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8693187057269567155}
   - component: {fileID: 9200820485593890511}
+  - component: {fileID: 2393678616037489604}
   - component: {fileID: 1600625115966050956}
   - component: {fileID: 9195523851662695043}
   - component: {fileID: 4569121565588201288}
+  - component: {fileID: 8048003590058373376}
+  - component: {fileID: 8714471648786694361}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -95,6 +98,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!58 &2393678616037489604
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058469308912967721}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.345
 --- !u!50 &1600625115966050956
 Rigidbody2D:
   serializedVersion: 5
@@ -134,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4ff0293d7446b47a0ffee0c6974a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RockController
-  moveDirection: {x: 0, y: -1}
-  moveSpeed: 5
+  gravityScale: 0.5
+  initialVelocity: 0
 --- !u!114 &4569121565588201288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +187,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee15337dd26a8ae42bf056d1fda80f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RockTargetTrigger
-  rockController: {fileID: 9195523851662695043}
+  rockFalling: {fileID: 0}
   target: {fileID: 0}
-  triggerDistance: 0.1
+  triggerDistance: 0.5
+--- !u!114 &8048003590058373376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058469308912967721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc41b2ac652eea469b9945bfd375056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Impactable
+--- !u!114 &8714471648786694361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058469308912967721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2212af334385a0f4183742d930fea473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RockImpact

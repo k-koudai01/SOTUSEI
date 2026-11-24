@@ -17,7 +17,7 @@ public class SwitchRockController : ObjectBase, IActivatable
     //=====================================================================
 
     [SerializeField]
-    private RockController rockController;
+    private RockFalling rockFalling;
 
     //=====================================================================
     // スイッチのアクティベート処理
@@ -25,6 +25,6 @@ public class SwitchRockController : ObjectBase, IActivatable
 
     public void Activate()
     {
-        rockController.Activate();
+        rockFalling.Activate();
     }
 }

@@ -1,6 +1,6 @@
 /*********************************************************************/
-// * \file   RockController.cs
-// * \brief  岩を動かすためのクラス
+// * \file   RockImpactable.cs
+// * \brief  岩の衝突処理を行うクラス
 // *
 // * \author 成田悠真
 /*********************************************************************/
@@ -8,25 +8,16 @@
 using UnityEngine;
 
 /// <summary>
-/// 岩を動かすためのクラス
+/// 岩の衝突処理を行うクラス
 /// </summary>
-[RequireComponent(typeof(Rigidbody2D))]
-public class RockController : ObjectBase
+[RequireComponent(typeof(Impactable))]
+public class RockImpactable : ObjectBase
 {
     //=====================================================================
     // 変数宣言
     //=====================================================================
 
-    [Header("物理設定")]
-    [SerializeField]
-    private float gravityScale = 0.5f;
-
-    [SerializeField]
-    private float initialVelocity = 0f;
-
-    private Rigidbody2D rb;
-
-    private bool isActivated;
+    private Impactable impactable;
 
     //=====================================================================
     // 初期化処理
@@ -34,22 +25,25 @@ public class RockController : ObjectBase
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f;
+        impactable = GetComponent<Impactable>();
+        impactable.OnImpacted += Impact;
     }
 
     //=====================================================================
-    // 岩の発動処理
+    // 衝突イベント処理
     //=====================================================================
 
-    public void Activate()
+    private void Impact(Collider2D collision)
     {
-        if(isActivated) { return; }
+        Destroy(gameObject);
+    }
 
-        isActivated = true;
+    //=====================================================================
+    // 破棄処理
+    //=====================================================================
 
-        rb.gravityScale = gravityScale;
-
-        rb.linearVelocity = Vector2.down * initialVelocity;
+    private void OnDestroy()
+    {
+        impactable.OnImpacted -= Impact;
     }
 }

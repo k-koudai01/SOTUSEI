@@ -199,7 +199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7150299550108671493, guid: 005bb666564cce74684aa0486f095da8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.28519
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: 7150299550108671493, guid: 005bb666564cce74684aa0486f095da8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1512,17 +1512,21 @@ PrefabInstance:
       propertyPath: doorMovement
       value: 
       objectReference: {fileID: 1069705693}
+    - target: {fileID: 2392031061683089279, guid: c627540cf7ec44e4cbd48ec53067cf61, type: 3}
+      propertyPath: openDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3254682821428384480, guid: c627540cf7ec44e4cbd48ec53067cf61, type: 3}
       propertyPath: m_Name
       value: SwitchDoor_ID01
       objectReference: {fileID: 0}
     - target: {fileID: 6502908975955562216, guid: c627540cf7ec44e4cbd48ec53067cf61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6328378
+      value: -3.14
       objectReference: {fileID: 0}
     - target: {fileID: 6502908975955562216, guid: c627540cf7ec44e4cbd48ec53067cf61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3531034
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6502908975955562216, guid: c627540cf7ec44e4cbd48ec53067cf61, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1558,11 +1562,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7688391674187404366, guid: c627540cf7ec44e4cbd48ec53067cf61, type: 3}
       propertyPath: moveSpeed
-      value: 3.83
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 7688391674187404366, guid: c627540cf7ec44e4cbd48ec53067cf61, type: 3}
       propertyPath: openOffset.y
-      value: 2.48
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 7688391674187404366, guid: c627540cf7ec44e4cbd48ec53067cf61, type: 3}
       propertyPath: doorTransform
@@ -2066,6 +2070,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8693187057269567155, guid: e48814b155afcfb40b292b9044cd04c7, type: 3}
   m_PrefabInstance: {fileID: 7150623652405433229}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1439810002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9195523851662695043, guid: e48814b155afcfb40b292b9044cd04c7, type: 3}
+  m_PrefabInstance: {fileID: 7150623652405433229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4ff0293d7446b47a0ffee0c6974a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RockController
 --- !u!1001 &1462020706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2949,11 +2964,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5938608041994595123, guid: b1756613084248740a90e52d5c1c5ab0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.88481
+      value: 6.88
       objectReference: {fileID: 0}
     - target: {fileID: 5938608041994595123, guid: b1756613084248740a90e52d5c1c5ab0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.76724
+      value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 5938608041994595123, guid: b1756613084248740a90e52d5c1c5ab0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2965,11 +2980,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5938608041994595123, guid: b1756613084248740a90e52d5c1c5ab0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5938608041994595123, guid: b1756613084248740a90e52d5c1c5ab0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5938608041994595123, guid: b1756613084248740a90e52d5c1c5ab0, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2991,6 +3006,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7663208537885185499, guid: b1756613084248740a90e52d5c1c5ab0, type: 3}
+      propertyPath: rockFalling
+      value: 
+      objectReference: {fileID: 574954239}
     - target: {fileID: 7663208537885185499, guid: b1756613084248740a90e52d5c1c5ab0, type: 3}
       propertyPath: rockController
       value: 
@@ -3074,17 +3093,33 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2393678616037489604, guid: e48814b155afcfb40b292b9044cd04c7, type: 3}
+      propertyPath: m_Radius
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393678616037489604, guid: e48814b155afcfb40b292b9044cd04c7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4569121565588201288, guid: e48814b155afcfb40b292b9044cd04c7, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 886373991}
+    - target: {fileID: 4569121565588201288, guid: e48814b155afcfb40b292b9044cd04c7, type: 3}
+      propertyPath: rockFalling
+      value: 
+      objectReference: {fileID: 1439810002}
+    - target: {fileID: 4569121565588201288, guid: e48814b155afcfb40b292b9044cd04c7, type: 3}
+      propertyPath: triggerDistance
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8693187057269567155, guid: e48814b155afcfb40b292b9044cd04c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.6202502
+      value: 3.47
       objectReference: {fileID: 0}
     - target: {fileID: 8693187057269567155, guid: e48814b155afcfb40b292b9044cd04c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.80855
+      value: 4.86
       objectReference: {fileID: 0}
     - target: {fileID: 8693187057269567155, guid: e48814b155afcfb40b292b9044cd04c7, type: 3}
       propertyPath: m_LocalPosition.z

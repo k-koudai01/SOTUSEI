@@ -17,7 +17,7 @@ public class RockTargetTrigger : ObjectBase
     //==========================================================
 
     [SerializeField]
-    private RockController rockController;
+    private RockFalling rockFalling;
 
     [SerializeField]
     private Transform target;
@@ -40,7 +40,7 @@ public class RockTargetTrigger : ObjectBase
         if(distance <= triggerDistance)
         {
             isTriggered = true;
-            rockController.Activate();
+            rockFalling.Activate();
         }
     }
 }
