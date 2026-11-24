@@ -91,6 +91,8 @@ namespace Assets.Script.System.Pool
 
             // プールから取得したオブジェクトは非アクティブにする
             obj.gameObject.SetActive(false);
+
+            Debug.Log($"[Pool] オブジェクト作成 : {obj.name}");
             return obj;
         }
 
@@ -135,6 +137,8 @@ namespace Assets.Script.System.Pool
             obj.transform.SetPositionAndRotation(position, rotation);
             obj.gameObject.SetActive(true);
 
+            Debug.Log($"[Pool] オブジェクト取得：{obj.name}");
+
             return obj;
         }
 
@@ -145,6 +149,9 @@ namespace Assets.Script.System.Pool
         public void ReleaseObject(T obj)
         {
             if(obj == null) return;
+
+            Debug.Log($"[Pool] オブジェクト返却：{obj.name}");
+
             objectPool.Release(obj);
         }
     }
