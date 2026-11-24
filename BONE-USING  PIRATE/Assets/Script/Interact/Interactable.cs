@@ -7,6 +7,7 @@
 
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 /// <summary>
 /// インタラクト可能オブジェクトの抽象クラス
@@ -17,9 +18,13 @@ public abstract class Interactable : MonoBehaviour
     // 変数宣言
     //=====================================================================
 
-    [Header("インタラクト入力設定")]
+    [Header("キー入力設定")]
     [SerializeField]
-    private Key interactKeyInput = Key.E;
+    private Key interactKey = Key.E;
+
+    [Header("パッド入力設定")]
+    [SerializeField]
+    private GamepadButton interactButton = GamepadButton.East;
 
     private bool isPlayerNearby = false;
 
@@ -59,11 +64,28 @@ public abstract class Interactable : MonoBehaviour
     {
         if(!isPlayerNearby) { return; }
 
-        // インタラクトキーが押されたときに処理を呼び出す
-        if(Keyboard.current[interactKeyInput].wasPressedThisFrame)
+        // インタラクト入力がされたときに処理を呼び出す
+        if(GetInteractInput())
         {
             Interact();
         }
+    }
+
+    //=====================================================================
+    // 入力取得関数
+    //=====================================================================
+
+    public bool GetInteractInput()
+    {
+        bool key = 
+            Keyboard.current != null && 
+            Keyboard.current[interactKey].wasPressedThisFrame;
+
+        bool pad =
+            Gamepad.current != null &&
+            Gamepad.current[interactButton].wasPressedThisFrame;
+
+        return key || pad;
     }
 
     //=====================================================================

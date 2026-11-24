@@ -1566,7 +1566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7688391674187404366, guid: c627540cf7ec44e4cbd48ec53067cf61, type: 3}
       propertyPath: openOffset.y
-      value: -2.4
+      value: -2.35
       objectReference: {fileID: 0}
     - target: {fileID: 7688391674187404366, guid: c627540cf7ec44e4cbd48ec53067cf61, type: 3}
       propertyPath: doorTransform
