@@ -31,7 +31,7 @@ public class SwitchController : ObjectBase
         {
             if(target is IActivatable activatable)
             {
-                Debug.Log($"スイッチが{target.name}をアクティベートしました。");
+                Debug.Log($"{this.name}が{target.name}をアクティベートしました。");
                 activatable.Activate();
             }
             else

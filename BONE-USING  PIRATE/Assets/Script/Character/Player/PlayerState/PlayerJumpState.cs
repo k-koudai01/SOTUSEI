@@ -15,7 +15,7 @@ namespace Assets.Script.Character.Player.PlayerState
 
         public override void Enter()
         {
-            Debug.Log("現在JumpState");
+            //Debug.Log("現在JumpState");
 
             stateMachine.Movement.Jump();
 
