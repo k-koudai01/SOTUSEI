@@ -20,9 +20,6 @@ namespace Assets.Script.Bullet
         //============================================================
         protected Rigidbody2D rb;
 
-        [SerializeField]
-        protected float moveSpeed = 10.0f;
-
         //============================================================
         // 関数
         //============================================================
@@ -35,11 +32,16 @@ namespace Assets.Script.Bullet
         /// 弾の発射処理
         /// </summary>
         /// <param name="direction">弾の移動方向</param>
-        public virtual void Initialize(Vector2 direction)
+        /// <param name="speed">弾の移動速度</param>
+        public virtual void Initialize(Vector2 direction, float speed)
         {
             if(direction.sqrMagnitude <= 0.0001) return;
 
-            rb.linearVelocity = direction.normalized * moveSpeed;
+            // 速度を初期化
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0.0f;
+
+            rb.linearVelocity = direction.normalized * speed;
         }
 
     }
