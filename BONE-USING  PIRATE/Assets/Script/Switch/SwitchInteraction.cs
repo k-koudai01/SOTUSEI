@@ -7,7 +7,7 @@
 
 using UnityEngine;
 
-public class SwitchInteraction : Intaractable
+public class SwitchInteraction : Interactable
 {
     //=====================================================================
     // 変数宣言

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace Assets.Script.Character.Player.PlayerSystem
 {
@@ -22,12 +23,22 @@ namespace Assets.Script.Character.Player.PlayerSystem
 
         //private GameObject currentPlayer;
 
-        ///=====================================================================
-        /// プロパティ
-        ///===================================================================== 
+        [SerializeField]
+        private Key jumpKey = Key.Space;
+        [SerializeField]
+        private GamepadButton jumpButton = GamepadButton.South;
+
+        [SerializeField]
+        private MouseButton boneThrowKey = MouseButton.Left;
+        [SerializeField]
+        private GamepadButton boneThorwKey = GamepadButton.West;
 
         //=====================================================================
-        // 初期化
+        // プロパティ
+        //===================================================================== 
+
+        //=====================================================================
+        // 関数
         //=====================================================================
 
         private void Awake()
@@ -57,15 +68,33 @@ namespace Assets.Script.Character.Player.PlayerSystem
         /// <returns> ジャンプ入力 </returns>
         public bool GetJumpInput()
         {
-            bool keyboardInput = 
-                Keyboard.current != null && 
-                Keyboard.current.spaceKey.wasPressedThisFrame;
+            bool keyboardInput =
+                Keyboard.current != null &&
+                Keyboard.current[jumpKey].wasPressedThisFrame;
 
             bool gamepadInput = 
                 Gamepad.current != null && 
-                Gamepad.current.buttonSouth.wasPressedThisFrame;
+                Gamepad.current[jumpButton].wasPressedThisFrame;
 
             return keyboardInput || gamepadInput;
+        }
+
+
+        /// <summary>
+        /// 骨を投げる入力を取得する
+        /// </summary>
+        /// <returns></returns>
+        public bool GetBoneThrowInput()
+        {
+            bool mouseInput =
+                Mouse.current != null &&
+                GetMouseButton(boneThrowKey);
+
+            bool gamepadInput =
+                Gamepad.current != null &&
+                Gamepad.current[boneThorwKey].wasPressedThisFrame;
+
+            return mouseInput || gamepadInput;
         }
 
         /// <summary>
@@ -102,6 +131,36 @@ namespace Assets.Script.Character.Player.PlayerSystem
             return new Vector2(input.x, 0.0f);
         }
 
+
+        /// <summary>
+        /// マウスボタンの入力を取得する
+        /// </summary>
+        /// <param name="button"></param>
+        public bool GetMouseButton(MouseButton button)
+        {
+            if(Mouse.current == null)
+            {
+                return false;
+            }
+
+            switch(button)
+            {
+                case MouseButton.Left:
+                    return Mouse.current.leftButton.wasPressedThisFrame;
+                case MouseButton.Right:
+                    return Mouse.current.rightButton.wasPressedThisFrame;
+                case MouseButton.Middle:
+                    return Mouse.current.middleButton.wasPressedThisFrame;
+                case MouseButton.Forward:
+                    return Mouse.current.forwardButton.wasPressedThisFrame;
+                case MouseButton.Back:
+                    return Mouse.current.backButton.wasPressedThisFrame;
+                default:
+                    return false;
+            }
+
+        }
+
         /// <summary>
         /// Gets the current aiming input.
         /// </summary>
@@ -110,31 +169,33 @@ namespace Assets.Script.Character.Player.PlayerSystem
         {
             Vector2 input = Vector2.zero;
 
+            // キーボードの入力を取得
             if(Keyboard.current != null)
             {
-                if (Keyboard.current.dKey.isPressed ||
+                if(Keyboard.current.dKey.isPressed ||
                     Keyboard.current.rightArrowKey.isPressed)
                 {
                     input.x = 1.0f;
                 }
-                else if (Keyboard.current.aKey.isPressed ||
+                else if(Keyboard.current.aKey.isPressed ||
                          Keyboard.current.leftAltKey.isPressed)
                 {
                     input.x = -1.0f;
                 }
 
-                if (Keyboard.current.wKey.isPressed ||
+                if(Keyboard.current.wKey.isPressed ||
                     Keyboard.current.upArrowKey.isPressed)
                 {
                     input.y = 1.0f;
                 }
-                else if (Keyboard.current.sKey.isPressed ||
+                else if(Keyboard.current.sKey.isPressed ||
                          Keyboard.current.downArrowKey.isPressed)
                 {
                     input.y = -1.0f;
                 }
             }
 
+            // Gamepadの入力を取得
             if(Gamepad.current != null)
             { 
                 Vector2 stickInput = Gamepad.current.leftStick.ReadValue();

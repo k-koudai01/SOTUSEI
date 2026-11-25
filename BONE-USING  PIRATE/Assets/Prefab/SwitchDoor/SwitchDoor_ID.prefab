@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6502908975955562216}
   - component: {fileID: 356339919346180648}
+  - component: {fileID: -3981796391327115282}
   - component: {fileID: 2392031061683089279}
   - component: {fileID: 7688391674187404366}
-  - component: {fileID: -3981796391327115282}
   m_Layer: 0
   m_Name: SwitchDoor_ID
   m_TagString: Untagged
@@ -95,38 +95,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &2392031061683089279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3254682821428384480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71a1456c862af0f4ca6bcbb07e2dbd1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwitchDoorController
-  doorMovement: {fileID: 0}
-  openDuration: 3
---- !u!114 &7688391674187404366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3254682821428384480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f6a0c1bc76558b40a4053dcad64cb2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DoorMovement
-  doorTransform: {fileID: 0}
-  positionMode: 0
-  openOffset: {x: 0, y: 0, z: 0}
-  openPosition: {x: 0, y: 0, z: 0}
-  closePosition: {x: 0, y: 0, z: 0}
-  moveSpeed: 2
 --- !u!61 &-3981796391327115282
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,3 +141,35 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.2, y: 2.4}
   m_EdgeRadius: 0
+--- !u!114 &2392031061683089279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3254682821428384480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a1456c862af0f4ca6bcbb07e2dbd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwitchDoorController
+  doorMovement: {fileID: 0}
+  openDuration: 3
+--- !u!114 &7688391674187404366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3254682821428384480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6a0c1bc76558b40a4053dcad64cb2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorMovement
+  doorTransform: {fileID: 0}
+  positionMode: 0
+  openOffset: {x: 0, y: 0, z: 0}
+  openPosition: {x: 0, y: 0, z: 0}
+  closePosition: {x: 0, y: 0, z: 0}
+  moveSpeed: 2
