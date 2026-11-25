@@ -1,9 +1,19 @@
-﻿using Assets.Script.Bullet;
+﻿/*********************************************************************/
+// * \file   PlayerBoneThrow.cs
+// * \brief  骨を投げる処理
+// *
+// * \author 石森虹大
+/*********************************************************************/
+
+using Assets.Script.Bullet;
 using Assets.Script.System.Pool;
 using UnityEngine;
 
 namespace Assets.Script.Character.Player.PlayerSystem
 {
+    /// <summary>
+    /// 骨を投げる処理
+    /// </summary>
     public class PlayerBoneThrow : MonoBehaviour
     {
         //====================================================================================
@@ -77,6 +87,8 @@ namespace Assets.Script.Character.Player.PlayerSystem
 
             Vector2 direction = playerAim.GetAimDirection();
 
+            if(direction.sqrMagnitude <= 0.0001f) return;
+
             BoneBullet bone = bonePool.GetObject
             (
                 throwPoint.position,
@@ -85,18 +97,8 @@ namespace Assets.Script.Character.Player.PlayerSystem
 
             if(bone == null) return;
 
-            // Rigidbody2Dを取得
-            Rigidbody2D rb = bone.GetComponent<Rigidbody2D>();
-
-            if(rb == null)
-            {
-                Debug.LogError("BoneBulletにRigidbody2Dがありません。");
-                bonePool.ReleaseObject(bone);
-                return;
-            }
-
-            // 速度を設定
-            rb.linearVelocity = direction * throwSpeed;
+            // 骨弾を発射
+            bone.Initialize(direction, throwSpeed);
         }
     }
 }
