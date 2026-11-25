@@ -45,7 +45,6 @@ namespace Assets.Script.Bullet
         /// <summary>
         /// 重力の更新処理
         /// </summary>>
-
         private void UpdateGravity()
         {
             if(isGravityEnabled) return;
