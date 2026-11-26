@@ -955,11 +955,11 @@ Transform:
   m_GameObject: {fileID: 594784446}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.37282, y: 1.3963599, z: 0}
+  m_LocalPosition: {x: -0.23464, y: 0.33607996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1013564306}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &660486270 stripped
 Transform:
@@ -1370,11 +1370,11 @@ GameObject:
   - component: {fileID: 886373990}
   - component: {fileID: 886373988}
   - component: {fileID: 886373993}
+  - component: {fileID: 886373995}
   - component: {fileID: 886373989}
   - component: {fileID: 886373987}
   - component: {fileID: 886373992}
   - component: {fileID: 886373994}
-  - component: {fileID: 886373995}
   - component: {fileID: 886373996}
   - component: {fileID: 886373997}
   m_Layer: 0
@@ -1993,38 +1993,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c627540cf7ec44e4cbd48ec53067cf61, type: 3}
---- !u!1 &1013564305
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1013564306}
-  m_Layer: 0
-  m_Name: Don'tDestroyObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1013564306
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013564305}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.13818, y: -1.06028, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 594784448}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1024475759 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6753397155773952880, guid: 8f261768047f1c443bc7c0c50794e815, type: 3}
@@ -3518,4 +3486,4 @@ SceneRoots:
   - {fileID: 1335165208}
   - {fileID: 687125406}
   - {fileID: 1536670152}
-  - {fileID: 1013564306}
+  - {fileID: 594784448}
