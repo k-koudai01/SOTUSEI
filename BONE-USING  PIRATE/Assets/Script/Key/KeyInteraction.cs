@@ -26,7 +26,7 @@ public class KeyInteraction : Interactable
 
     protected override void Interact()
     {
-        Debug.Log("鍵を拾いました。");
+        //Debug.Log("鍵を拾いました。");
 
         // インベントリに鍵を追加
         InventoryManager.Instance.AddKey(keyColor);
