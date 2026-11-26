@@ -38,6 +38,7 @@ namespace Assets.Script.Character.Player.PlayerSystem
         [Header("接地判定")]
         [SerializeField]
         private float groundCheckDistance = 0.05f;
+        private float facingDirection = 1.0f; // 1: 右, -1: 左
 
         private Rigidbody2D rb;
         private CapsuleCollider2D capsuleCollider;
@@ -47,11 +48,13 @@ namespace Assets.Script.Character.Player.PlayerSystem
         private bool isGrounded;
 
         private PlayerAnimation playerAnimation;
+
         //=====================================================================
         // プロパティ
         //=====================================================================
 
         public bool CanControl => canControl;
+        public float FacingDirection => facingDirection;
         public Vector2 MoveDirection => moveDirection;
         public float VerticalVelocity => rb.linearVelocity.y;
         public bool IsGrounded => isGrounded;
@@ -121,6 +124,12 @@ namespace Assets.Script.Character.Player.PlayerSystem
 
             // 移動方向を正規化して、その大きさを1に制限する
             moveDirection = Vector2.ClampMagnitude(direction, 1.0f);
+
+            // 左右の入力があった場合、向きを更新する
+            if(Mathf.Abs(moveDirection.x) > 0.01f)
+            {
+                facingDirection = Mathf.Sign(moveDirection.x);
+            }
         }
 
         /// <summary>

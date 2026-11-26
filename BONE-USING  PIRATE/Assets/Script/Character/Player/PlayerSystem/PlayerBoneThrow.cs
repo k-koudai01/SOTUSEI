@@ -33,6 +33,7 @@ namespace Assets.Script.Character.Player.PlayerSystem
 
         private PlayerAim playerAim;
         private PlayerInput playerInput;
+        private PlayerMovement playerMovement;
 
         //====================================================================================
         // 関数
@@ -42,6 +43,7 @@ namespace Assets.Script.Character.Player.PlayerSystem
         {
             playerAim = GetComponent<PlayerAim>();
             playerInput = GetComponent<PlayerInput>();
+            playerMovement = GetComponent<PlayerMovement>();
 
             if(playerAim == null)
             {
@@ -51,6 +53,11 @@ namespace Assets.Script.Character.Player.PlayerSystem
             if(playerInput == null)
             {
                 Debug.LogError("PlayerInputが見つかりません。");
+            }
+
+            if(playerMovement == null)
+            {
+                Debug.LogError("PlayerMovementが見つかりません。");
             }
 
             if(bonePool == null)
@@ -96,6 +103,8 @@ namespace Assets.Script.Character.Player.PlayerSystem
             );
 
             if(bone == null) return;
+
+            bone.SetRotationDirection(playerMovement.FacingDirection);
 
             // 骨弾を発射
             bone.Initialize(direction, throwSpeed);

@@ -173,3 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Script.Bullet.BoneBullet
   gravityDelay: 0.3
   gravityScale: 1.2
+  boneVisual: {fileID: 837161840047432274}
+  rotationSpeed: 720

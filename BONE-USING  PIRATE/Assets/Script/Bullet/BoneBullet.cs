@@ -4,6 +4,8 @@
 // * \author 石森虹大
 /*********************************************************************/
 
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Assets.Script.Bullet
@@ -28,6 +30,13 @@ namespace Assets.Script.Bullet
 
         private bool isGravityEnabled; // 重力が有効かどうか
 
+        [Header("回転設定")]
+        [SerializeField]
+        private Transform boneVisual;
+        [SerializeField]
+        private float rotationSpeed = 360.0f; // 回転速度
+        private float rotationDirection = 1.0f; // 回転方向 1: 時計回り, -1: 反時計回り
+
         //====================================================================================
         // 関数
         //====================================================================================
@@ -35,6 +44,11 @@ namespace Assets.Script.Bullet
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void Update()
+        {
+            UpdateRotation();
         }
 
         private void FixedUpdate()
@@ -88,6 +102,33 @@ namespace Assets.Script.Bullet
 
             // 基底クラスの発射処理を利用
             base.Initialize(direction, speed);
+        }
+
+        //====================================================================================
+        // 回転関数
+        //====================================================================================
+
+        /// <summary>
+        /// 骨の見た目を回転させる
+        /// </summary>
+        private void UpdateRotation()
+        {
+            boneVisual.Rotate
+            (
+                0.0f,
+                0.0f,
+                rotationSpeed * rotationDirection * Time.deltaTime // 一秒でrotationSpeed度回転するように計算
+            );
+        }
+
+        /// <summary>
+        /// 骨の回転方向を設定する
+        /// </summary>
+        /// <param name="direction">プレイヤーの向き</param>
+        public void SetRotationDirection(float direction)
+        {
+            // 右向きなら時計回り、左向きなら反時計回り
+            rotationDirection = -Mathf.Sign(direction);
         }
     }
 }
