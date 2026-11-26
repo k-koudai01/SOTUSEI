@@ -32,7 +32,7 @@ namespace Assets.Script.Bullet
 
         [Header("回転設定")]
         [SerializeField]
-        private Transform boneVisual;
+        private Transform boneVisual; 
         [SerializeField]
         private float rotationSpeed = 360.0f; // 回転速度
         private float rotationDirection = 1.0f; // 回転方向 1: 時計回り, -1: 反時計回り
