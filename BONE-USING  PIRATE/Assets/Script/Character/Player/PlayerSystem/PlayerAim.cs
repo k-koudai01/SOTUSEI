@@ -17,6 +17,9 @@ namespace Assets.Script.Character.Player.PlayerSystem
         //====================================================================================
         // 変数
         //====================================================================================
+        [Header("デバッグログ")]
+        [SerializeField]
+        private bool DebugLogEnabled = true;
 
         private PlayerInput playerInput;
         private PlayerAnimation playerAnimation;
@@ -47,7 +50,10 @@ namespace Assets.Script.Character.Player.PlayerSystem
             // 照準方向を表示する
             if (aimDirection.sqrMagnitude > 0.01)
             {
-                Debug.Log($"Aim Direction: {aimDirection}");
+                if(DebugLogEnabled)
+                {
+                    Debug.Log($"Aim Direction: {aimDirection}");
+                }
             }
         }
 
