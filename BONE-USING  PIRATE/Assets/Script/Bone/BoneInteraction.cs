@@ -8,7 +8,7 @@
 using UnityEngine;
 
 /// <summary>
-/// 骨を調べるためのクラス
+/// 骨を調べたときの個別処理クラス
 /// </summary>
 public class BoneInteraction : Interactable
 {

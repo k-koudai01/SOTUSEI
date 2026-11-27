@@ -39,6 +39,12 @@ public class PressurePlateMovement : MonoBehaviour
     private PressurePlateController plateController;
 
     //=================================================================
+    // プロパティ
+    //=================================================================
+
+    public float PressDepth => pressDepth;
+
+    //=================================================================
     // 初期化
     //=================================================================
 
@@ -61,11 +67,5 @@ public class PressurePlateMovement : MonoBehaviour
             targetPosition,
             Time.deltaTime * pressSpeed
         );
-
-        //plate.localPosition = Vector3.MoveTowards(
-        //    plate.localPosition,
-        //    targetPosition,
-        //    pressSpeed * Time.deltaTime
-        //);
     }
 }

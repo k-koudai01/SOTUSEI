@@ -62,7 +62,7 @@ public abstract class Interactable : MonoBehaviour
 
     void Update()
     {
-        if(!isPlayerNearby) { return; }
+        if(!isPlayerNearby || !CanInteract()) { return; }
 
         // インタラクト入力がされたときに処理を呼び出す
         if(GetInteractInput()) { Interact(); }
@@ -102,6 +102,11 @@ public abstract class Interactable : MonoBehaviour
     /// 個別のインタラクト処理を実装する純粋仮想関数（必ず継承先で実装しなければいけない）
     /// </summary>
     protected abstract void Interact();
+
+    /// <summary>
+    /// インタラクト可能かどうか
+    /// </summary>
+    protected virtual bool CanInteract(){ return true; }
 
     /// <summary>
     /// プレイヤーが範囲に入ったときに呼ばれる仮想関数（継承先で必要なら使う）
