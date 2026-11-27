@@ -29,6 +29,12 @@ public class SwitchController : ObjectBase
     {
         foreach(MonoBehaviour target in targets)
         {
+            if(target == null)
+            {
+                Debug.LogWarning("ターゲットが設定されていません。");
+                continue;
+            }
+
             if(target is IActivatable activatable)
             {
                 Debug.Log($"{this.name}が{target.name}をアクティベートしました。");
