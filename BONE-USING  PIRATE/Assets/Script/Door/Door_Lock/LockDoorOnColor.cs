@@ -38,7 +38,5 @@ public class LockDoorOnColor : MonoBehaviour
     public void OpenDoor()
     {
         isOpen = true;
-
-        Debug.Log("ドアを開いた");
     }
 }

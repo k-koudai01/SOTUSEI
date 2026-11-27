@@ -23,18 +23,6 @@ public class Impactable : MonoBehaviour
     // 衝突イベント
     //=====================================================================
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if(IsPlayerTag(collision))
-    //    {
-    //        // プレイヤーとの衝突を検知した場合、イベントを発火
-    //        OnImpacted?.Invoke(collision);
-    //    }
-    //    else
-    //    {
-    //    }
-    //}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(IsPlayerTag(collision))

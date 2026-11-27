@@ -31,7 +31,7 @@ public class SwitchController : ObjectBase
         {
             if(target == null)
             {
-                Debug.LogWarning("ターゲットが設定されていません。");
+                Debug.LogWarning("ターゲットが存在していない");
                 continue;
             }
 
