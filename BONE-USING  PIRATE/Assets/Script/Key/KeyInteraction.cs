@@ -1,6 +1,6 @@
 /*********************************************************************/
 // * \file   KeyInteraction.cs
-// * \brief  キーのインタラクションクラス
+// * \brief  鍵のインタラクションクラス
 // *
 // * \author 成田悠真
 /*********************************************************************/
@@ -8,25 +8,15 @@
 using UnityEngine;
 
 /// <summary>
-/// キーのインタラクションクラス
+/// 鍵のインタラクションクラス
 /// </summary>
 public class KeyInteraction : Interactable
 {
     //====================================================================================
-    // 列挙型
-    //====================================================================================
-
-    public enum KeyColor
-    {
-        Red,
-        Blue,
-        Green
-    }
-
-    //====================================================================================
     // 変数
     //====================================================================================
 
+    [Header("鍵の設定")]
     [SerializeField]
     private KeyColor keyColor = KeyColor.Red;
 
@@ -36,6 +26,12 @@ public class KeyInteraction : Interactable
 
     protected override void Interact()
     {
-        
+        //Debug.Log("鍵を拾いました。");
+
+        // インベントリに鍵を追加
+        InventoryManager.Instance.AddKey(keyColor);
+
+        // 鍵オブジェクトを削除
+        Destroy(gameObject);
     }
 }

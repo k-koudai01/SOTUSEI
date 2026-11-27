@@ -5,7 +5,6 @@
 // * \author 石森虹大
 /*********************************************************************/
 
-using System.Collections;
 using UnityEngine;
 
 namespace Assets.Script.System

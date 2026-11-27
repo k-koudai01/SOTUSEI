@@ -13,7 +13,7 @@ namespace Assets.Script.Character.Player.PlayerState
 
         public override void Enter()
         {
-            Debug.Log("現在FallState");
+            //Debug.Log("現在FallState");
         }
 
         public override void Update()

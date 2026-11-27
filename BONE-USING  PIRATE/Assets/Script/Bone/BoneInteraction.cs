@@ -16,6 +16,7 @@ public class BoneInteraction : Interactable
     // 変数宣言
     //==========================================================
 
+    [Header("骨の設定")]
     [SerializeField]
     private int addBoneAmount = 1;
 

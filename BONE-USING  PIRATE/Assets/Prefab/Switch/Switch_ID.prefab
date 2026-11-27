@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 47bb6005e50695d4a98bfe53efb31514, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -157,5 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07eb469adae5a5419dcf0186c807eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchInteraction
-  interactKeyInput: 19
+  interactKey: 19
+  interactButton: 5
   switchController: {fileID: 0}
